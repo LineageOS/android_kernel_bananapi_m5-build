@@ -3,8 +3,8 @@
 load("//build/kernel/kleaf:kernel.bzl", "kernel_build_config")
 load("//vendor/amlogic/kernel:kernel_platform.bzl", "amlogic_kernel_platform")
 load("//vendor/amlogic/gpu-modules/bifrost:defs.bzl", "mali_bifrost_module")
-load("//vendor/amlogic/bt-modules/realtek:defs.bzl", "realtek_btusb_module")
 load("//vendor/amlogic/realtek-drivers/8822cs:defs.bzl", "rtl8822cs_module")
+load("//vendor/amlogic/bt-modules:defs.bzl", "rtk_btusb_module")
 load("//vendor/amlogic/media-modules:defs.bzl", "media_modules_module")
 load(":modules.bzl", "COMMON_DRIVERS_MODULES", "GKI_MODULES_REMOVE", "TARGET_MODULES", "MODULES_OUT_REMOVE", "SYSTEM_DLKM_MODULES")
 
@@ -12,9 +12,9 @@ package(
     default_visibility = ["//visibility:public"],
 )
 
-rtl8822cs_module(name = "wlan_rtl8822cs", kernel_build = ":nicepool")
+rtl8822cs_module(name = "wlan_rtl8822cs", kernel_build = ":m5")
 
-realtek_btusb_module(name = "realtek_btusb", kernel_build = ":m5",)
+rtk_btusb_module(name = "realtek_btusb", kernel_build = ":m5",)
 
 mali_bifrost_module(name = "gpu_bifrost", kernel_build = ":m5")
 
