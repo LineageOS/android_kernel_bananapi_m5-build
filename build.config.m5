@@ -1,5 +1,8 @@
 export COMMON_DRIVERS_DIR=common_drivers
 
+# Load DTBO overlays by generating __symbols__ nodes
+export DTC_FLAGS=-@
+
 # Mali Bifrost GPU driver version (m5 = dvalin/G31). Override Makefile default r25p0.
 export GPU_DRV_VERSION=r47p0
 export GPU_TYPE=dvalin
